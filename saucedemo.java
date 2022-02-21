@@ -15,7 +15,7 @@ public class saucedemo {
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 		driver.get("https://www.saucedemo.com/");
-		String actualTitle = driver.getTitle();
+	
 		driver.manage().window().maximize();
 		
 	   //Login using the Standard user credential
@@ -25,35 +25,35 @@ public class saucedemo {
 		System.out.println("User logged in sucessfully");
 	
 		//Add to cart
-		
 		driver.findElement(By.id("item_4_title_link")).click();
 		System.out.println("Item is selected sucessfully");
 		
-		Thread.sleep(2000);
+		
 		driver.findElement(By.xpath("//button[@id = 'add-to-cart-sauce-labs-backpack']")).click();
-		System.out.println("Added to the card");
+		System.out.println("Item is Added to the cart");
 		
 		//Click to cart check out
 		driver.findElement(By.id("shopping_cart_container")).click();
 		
 		
 		//checkout
-		driver.findElement(By.id("checkout")).click();
-		//driver.findElement(By.xpath("//div[@contains(text(),Checkout: Your Information")).isDisplayed();
+		 driver.findElement(By.id("checkout")).click();
 		 System.out.println("Checkout: Your Information - title displayed");
 		 
-		// Enter details name/ lastname / postcode
-	
-		driver.findElement(By.id("first-name")).sendKeys("Test12");		
+		//Enter details name/ last name / Post code
+	    driver.findElement(By.id("first-name")).sendKeys("Test12");		
 		driver.findElement(By.id("last-name")).sendKeys("user");
 		driver.findElement(By.id("postal-code")).sendKeys("BS7 0QB");
 		driver.findElement(By.id("continue")).click();
 		
 		driver.findElement(By.id("finish")).click();
 		
+		//Checkout complete
 		driver.findElement(By.className("title")).isDisplayed();
 		System.out.println("Checkout: Complete!");
 		
+		
+		//logout 
 		driver.findElement(By.id("react-burger-menu-btn")).click();
 		driver.findElement(By.id("logout_sidebar_link")).click();
 		System.out.println("Logout sucessfully");
